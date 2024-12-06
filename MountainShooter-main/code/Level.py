@@ -33,6 +33,8 @@ class Level:
             self.entity_list.append(player)
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
         pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)  # 100ms
+        if name == 'Level3':
+            self.timeout = TIMEOUT_LEVEL + TIMEOUT_LEVEL
 
     def run(self, player_score: list[int]):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
