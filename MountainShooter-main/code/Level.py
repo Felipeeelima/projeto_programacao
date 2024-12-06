@@ -36,7 +36,8 @@ class Level:
         if name == 'Level3':
             self.timeout = TIMEOUT_LEVEL + TIMEOUT_LEVEL
 
-    def run(self, player_score: list[int]):
+    def run(self, player_score: list[int],name:str):
+        self.name = name
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
         pygame.mixer_music.set_volume(0.3)
         pygame.mixer_music.play(-1)
@@ -59,8 +60,12 @@ class Level:
                     pygame.quit()
                     sys.exit()
                 if event.type == EVENT_ENEMY:
-                    choice = random.choice(('Enemy1', 'Enemy2'))
-                    self.entity_list.append(EntityFactory.get_entity(choice))
+                    if name == 'Level3':
+                        choice = 'Enemy3'
+                        self.entity_list.append(EntityFactory.get_entity(choice))
+                    else:
+                        choice = random.choice(('Enemy1', 'Enemy2'))
+                        self.entity_list.append(EntityFactory.get_entity(choice))
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP
                     if self.timeout == 0:
