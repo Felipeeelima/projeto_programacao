@@ -126,7 +126,7 @@ ENTITY_SCORE = {
     'Enemy1Shot': 0,
     'Enemy2': 125,
     'Enemy2Shot': 0,
-    'Enemy3': 150,
+    'Enemy3': 50,
     'Enemy3Shot': 0,
 }
 
@@ -135,7 +135,7 @@ ENTITY_SHOT_DELAY = {
     'Player2': 15,
     'Enemy1': 100,
     'Enemy2': 200,
-    'Enemy3': 300,
+    'Enemy3': 100,
 }
 
 # M
@@ -162,7 +162,7 @@ SPAWN_TIME = 4000
 
 # T
 TIMEOUT_STEP = 100  # 100ms
-TIMEOUT_LEVEL = 5000  # 20s
+TIMEOUT_LEVEL = 20000  # 20s
 # W
 WIN_WIDTH = 576
 WIN_HEIGHT = 324

@@ -11,7 +11,24 @@ class Enemy(Entity):
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
 
     def move(self):
-        self.rect.centerx -= ENTITY_SPEED[self.name]
+        if not hasattr(self, 'movimento'):
+            self.movimento = 0
+        if self.name == 'Enemy3':
+            self.rect.centerx -= ENTITY_SPEED[self.name]
+
+            if self.movimento == 0:
+                if self.rect.centery < 304:
+                    self.rect.centery += ENTITY_SPEED[self.name] + ENTITY_SPEED[self.name]
+                else:
+                    self.movimento = 1
+
+            elif self.movimento == 1:
+                if self.rect.centery > 20:
+                    self.rect.centery -= ENTITY_SPEED[self.name]
+                else:
+                    self.movimento = 0
+        else:
+            self.rect.centerx -= ENTITY_SPEED[self.name]
 
     def shoot(self):
         self.shot_delay -= 1
